@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chinta Lokanath | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <style>
+    :root {
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --accent: #00e5ff;
+      --text-color: #f5f5f5;
+      --muted-color: #90a4ae;
+      --glass-border: rgba(255, 255, 255, 0.2);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364); /* NEW BACKGROUND */
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    header {
+      background: radial-gradient(circle, #00e5ff33, transparent);
+      padding: 120px 20px 80px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3.8em;
+      margin-bottom: 15px;
+      background: linear-gradient(to right, #00e5ff, #00bcd4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    header p {
+      font-size: 1.4em;
+      font-weight: 300;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #00e5ff55; }
+      to { text-shadow: 0 0 20px #00e5ff; }
+    }
+    nav {
+      background: #111;
+      padding: 15px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    nav a {
+      margin: 0 25px;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 1.1em;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background: var(--accent);
+      transition: 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    section {
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      color: var(--accent);
+      margin-bottom: 30px;
+      font-size: 2.4em;
+      text-align: center;
+      text-shadow: 0 0 10px #00e5ff77;
+    }
+    .skills, .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .skills span {
+      background: #1c1c1c;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-weight: 500;
+      font-size: 1em;
+      transition: 0.3s ease;
+      box-shadow: 0 0 8px rgba(0,229,255,0.1);
+      cursor: pointer;
+    }
+    .skills span:hover {
+      background: #333;
+      transform: scale(1.1);
+      box-shadow: 0 0 16px rgba(0,229,255,0.4);
+    }
+    .project {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(14px);
+      border-radius: 18px;
+      padding: 30px;
+      flex: 1 1 45%;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .project:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0,229,255,0.3);
+    }
+    .project h3 {
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: black;
+      padding: 12px 26px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.3s;
+      box-shadow: 0 0 12px #00e5ff88;
+    }
+    .btn:hover {
+      background: #18ffff;
+      transform: scale(1.05);
+    }
+    .contact {
+      text-align: center;
+    }
+    .contact-icons {
+      margin: 25px 0;
+    }
+    .contact-icons a {
+      color: var(--accent);
+      font-size: 2em;
+      margin: 0 18px;
+      transition: color 0.3s ease, transform 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    .contact-icons a:hover {
+      color: #18ffff;
+    }
+    footer {
+      background: #1a1a1a;
+      color: var(--muted-color);
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 0.9em;
+    }
+    @media (max-width: 768px) {
+      .project {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <header>
+    <h1>Hello, I'm Chinta Lokanath</h1>
+    <p><span id="typing"></span></p>
+  </header>
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p style="text-align:center; max-width: 700px; margin: auto;">
+      I'm a Fresher With a Strong Foundation in Programming and Problem-Solving. I love Learning New Technologies and Building Real-World Applications. I'm Currently Seeking an Opportunity Where I Can Grow, Contribute, and Collaborate on Impactful Projects.
+    </p>
+  </section>
+  <section id="skills" data-aos="fade-up">
+    <h2>Skills</h2>
+    <div class="skills">
+      <span>Java</span>
+      <span>OOPs</span>
+      <span>Spring Boot</span>
+      <span>HTML5</span>
+      <span>CSS3</span>
+      <span>JavaScript</span>
+      <span>SQL</span>
+      <span>Git & GitHub</span>
+      <span>Data Structures</span>
+    </div>
+  </section>
+  <section id="projects" data-aos="fade-up">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3><i class="fas fa-shopping-cart"></i> SalesSavvy</h3>
+        <p>SalesSavvy is a User-Friendly E-Commerce Platform That Simplifies Online Shopping.<br>Features a Wide Range of Products Including Electronics and Fashion.</p>
+      </div>
+      <div class="project">
+        <h3><i class="fas fa-database"></i> Student Record System</h3>
+        <p>A CRUD-based Java Application to Manage Student Data Using File Handling and Collections.</p>
+      </div>
+      <div class="project">
+        <h3><i class="fas fa-globe"></i> Responsive Portfolio</h3>
+        <p>A personal portfolio website created using HTML, CSS, and JavaScript to showcase my profile and projects.</p>
+      </div>
+    </div>
+  </section>
+  <section class="contact" id="contact" data-aos="fade-up">
+    <h2>Contact Me</h2>
+    <p>Have a project in mind or want to connect? Let's talk!</p>
+    <div class="contact-icons">
+      <a href="mailto:lokanath.loka9052@gmail.com?subject=Let's%20Connect&body=Hi%20Lokanath," aria-label="Email Lokanath" target="_blank"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/Lokanath963" aria-label="GitHub Profile" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/chinta-lokanath-0a035128b" aria-label="LinkedIn Profile" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <a href="SDE_20250203_135921_0000.pdf" class="btn" target="_blank" download="Chinta_Lokanath_Resume.pdf">📄 Download Resume</a>
+  </section>
+  <footer>
+    <p>&copy; 2025 Chinta Lokanath. Made with 💙 and lots of learning.</p>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true });
+  </script>
+  <script>
+    const phrases = ["Aspiring Software Developer", "Passionate Learner", "Full-Stack Enthusiast"];
+    let part = 0, partIndex = 0, interval;
+    const element = document.getElementById("typing");
+
+    function type() {
+      let text = phrases[part].substring(0, partIndex + 1);
+      element.innerHTML = text;
+      partIndex++;
+      if (text === phrases[part]) {
+        clearInterval(interval);
+        setTimeout(() => {
+          interval = setInterval(erase, 100);
+        }, 1500);
+      }
+    }
+
+    function erase() {
+      let text = phrases[part].substring(0, partIndex - 1);
+      element.innerHTML = text;
+      partIndex--;
+      if (text === '') {
+        clearInterval(interval);
+        part = (part + 1) % phrases.length;
+        partIndex = 0;
+        setTimeout(() => {
+          interval = setInterval(type, 100);
+        }, 300);
+      }
+    }
+    interval = setInterval(type, 100);
+  </script>
+</body>
+</html>
